@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0d1830">
+    <title>ตัวอย่างซอฟต์แวร์ | สเตฟานี ซอฟแวร์ จำกัด</title>
+    <meta name="description" content="ตัวอย่างหน้าระบบซอฟต์แวร์จัดการร้านอาหารของสเตฟานี ซอฟแวร์ จำกัด">
+    <link href="demostyles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="top">
+        <div class="brand"><span class="mark">S</span><span>STEFANIE SOFTWARE</span></div><a href="services.html">←
+            กลับเว็บไซต์บริษัท</a><button class="mobile-menu" id="menuBtn" aria-label="เปิดเมนู"
+            aria-expanded="false">☰</button>
+    </header>
+    <div class="overlay" id="overlay"></div>
+    <div class="layout">
+        <aside class="side" id="sidebar">
+            <h3>RESTAURANT SYSTEM</h3>
+            <nav class="nav"><button class="active" data-tab="dashboard">▦ ภาพรวม</button><button data-tab="orders">▤
+                    ออเดอร์</button><button data-tab="tables">◫ โต๊ะอาหาร</button><button data-tab="menu">☷
+                    เมนูอาหาร</button><button data-tab="sales">฿ ยอดขาย</button></nav>
+        </aside>
+        <main class="main">
+            <a class="back" href="services.html">← กลับไปหน้าบริการ</a>
+            <div class="demo-note">นี่คือ <strong>ตัวอย่างการออกแบบซอฟต์แวร์</strong>
+                สำหรับนำเสนอแนวคิดการทำงานของระบบร้านอาหาร ไม่ใช่ระบบหลังบ้านจริงและไม่มีการบันทึกข้อมูลธุรกรรมจริง
+            </div>
+            <section id="dashboard" class="section active">
+                <div class="head">
+                    <div>
+                        <div class="crumb">Dashboard / ภาพรวมร้าน</div>
+                        <h1>สวัสดี, ผู้จัดการร้าน 👋</h1>
+                        <p>ภาพรวมการดำเนินงานของร้านวันนี้</p>
+                    </div>
+                    <div class="date">5 ตุลาคม 2026 · 18:30 น.</div>
+                </div>
+                <div class="grid">
+                    <div class="stat"><span>ยอดขายวันนี้</span><strong class="blue">฿24,580</strong><small
+                            class="green">↑ 12.4% จากเมื่อวาน</small></div>
+                    <div class="stat"><span>ออเดอร์ทั้งหมด</span><strong>86</strong><small>สำเร็จ 78 รายการ</small>
+                    </div>
+                    <div class="stat"><span>โต๊ะที่ใช้งาน</span><strong class="orange">12 / 18</strong><small>ว่าง 6
+                            โต๊ะ</small></div>
+                    <div class="stat"><span>รอชำระเงิน</span><strong class="red">฿2,340</strong><small>4 รายการ</small>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>ออเดอร์ล่าสุด</h2><button class="btn primary"
+                            onclick="showToast('เปิดหน้ารายการออเดอร์แล้ว')">ดูทั้งหมด</button>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>เลขที่</th>
+                                    <th>โต๊ะ</th>
+                                    <th>รายการ</th>
+                                    <th>ยอดรวม</th>
+                                    <th>สถานะ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-1086</td>
+                                    <td>โต๊ะ 08</td>
+                                    <td>ข้าวกะเพรา + ชาไทย</td>
+                                    <td>฿185</td>
+                                    <td><span class="badge b-cooking">กำลังทำ</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-1085</td>
+                                    <td>โต๊ะ 12</td>
+                                    <td>สปาเกตตี + น้ำเปล่า</td>
+                                    <td>฿320</td>
+                                    <td><span class="badge b-new">ออเดอร์ใหม่</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-1084</td>
+                                    <td>โต๊ะ 05</td>
+                                    <td>เบอร์เกอร์ 2 ชุด</td>
+                                    <td>฿298</td>
+                                    <td><span class="badge b-done">เสิร์ฟแล้ว</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section id="orders" class="section">
+                <div class="head">
+                    <div>
+                        <div class="crumb">Orders</div>
+                        <h1>จัดการออเดอร์</h1>
+                        <p>ติดตามสถานะออเดอร์ของลูกค้า</p>
+                    </div><button class="btn primary" onclick="showToast('สร้างออเดอร์ตัวอย่างแล้ว')">+
+                        สร้างออเดอร์</button>
+                </div>
+                <div class="panel">
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>เลขที่</th>
+                                    <th>เวลา</th>
+                                    <th>โต๊ะ</th>
+                                    <th>ยอด</th>
+                                    <th>สถานะ</th>
+                                    <th>จัดการ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-1086</td>
+                                    <td>18:24</td>
+                                    <td>08</td>
+                                    <td>฿185</td>
+                                    <td><span class="badge b-cooking">กำลังทำ</span></td>
+                                    <td><button class="btn muted"
+                                            onclick="showToast('เปลี่ยนสถานะเป็นเสิร์ฟแล้ว')">อัปเดต</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-1085</td>
+                                    <td>18:21</td>
+                                    <td>12</td>
+                                    <td>฿320</td>
+                                    <td><span class="badge b-new">ออเดอร์ใหม่</span></td>
+                                    <td><button class="btn muted"
+                                            onclick="showToast('รับออเดอร์แล้ว')">รับออเดอร์</button></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-1084</td>
+                                    <td>18:15</td>
+                                    <td>05</td>
+                                    <td>฿298</td>
+                                    <td><span class="badge b-done">เสิร์ฟแล้ว</span></td>
+                                    <td><button class="btn muted"
+                                            onclick="showToast('เปิดรายละเอียด #ORD-1084')">รายละเอียด</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section id="tables" class="section">
+                <div class="head">
+                    <div>
+                        <div class="crumb">Tables</div>
+                        <h1>จัดการโต๊ะอาหาร</h1>
+                        <p>ดูสถานะโต๊ะและจำนวนออเดอร์แบบภาพรวม</p>
+                    </div>
+                </div>
+                <div class="cards">
+                    <div class="panel menu-card">
+                        <div class="emoji">🟢</div>
+                        <h3>โต๊ะ 01</h3>
+                        <p>ว่างพร้อมรับลูกค้า</p><button class="btn primary"
+                            onclick="showToast('เปิดโต๊ะ 01')">เปิดโต๊ะ</button>
+                    </div>
+                    <div class="panel menu-card">
+                        <div class="emoji">🟠</div>
+                        <h3>โต๊ะ 08</h3>
+                        <p>กำลังรับประทาน · 3 รายการ</p><button class="btn muted"
+                            onclick="showToast('ดูออเดอร์โต๊ะ 08')">ดูออเดอร์</button>
+                    </div>
+                    <div class="panel menu-card">
+                        <div class="emoji">🔴</div>
+                        <h3>โต๊ะ 12</h3>
+                        <p>รอชำระเงิน · ฿720</p><button class="btn primary"
+                            onclick="showToast('เปิดหน้าชำระเงินตัวอย่าง')">ชำระเงิน</button>
+                    </div>
+                </div>
+            </section>
+            <section id="menu" class="section">
+                <div class="head">
+                    <div>
+                        <div class="crumb">Menu</div>
+                        <h1>เมนูอาหาร</h1>
+                        <p>ตัวอย่างการจัดการรายการอาหารของร้าน</p>
+                    </div><button class="btn primary" onclick="showToast('เพิ่มเมนูตัวอย่างแล้ว')">+ เพิ่มเมนู</button>
+                </div>
+                <div class="cards">
+                    <div class="panel menu-card">
+                        <div class="emoji">🍛</div>
+                        <h3>ข้าวกะเพราไก่</h3>
+                        <p>เมนูยอดนิยมของร้าน</p><span class="price">฿79</span>
+                    </div>
+                    <div class="panel menu-card">
+                        <div class="emoji">🍝</div>
+                        <h3>สปาเกตตีคาโบนารา</h3>
+                        <p>เสิร์ฟร้อน พร้อมเครื่องเคียง</p><span class="price">฿159</span>
+                    </div>
+                    <div class="panel menu-card">
+                        <div class="emoji">🧋</div>
+                        <h3>ชาไทยเย็น</h3>
+                        <p>เครื่องดื่มเย็น</p><span class="price">฿55</span>
+                    </div>
+                </div>
+            </section>
+            <section id="sales" class="section">
+                <div class="head">
+                    <div>
+                        <div class="crumb">Sales</div>
+                        <h1>ยอดขาย</h1>
+                        <p>สรุปข้อมูลการขายเพื่อช่วยติดตามผลการดำเนินงาน</p>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="stat"><span>วันนี้</span><strong class="blue">฿24,580</strong></div>
+                    <div class="stat"><span>สัปดาห์นี้</span><strong>฿158,420</strong></div>
+                    <div class="stat"><span>เดือนนี้</span><strong>฿642,800</strong></div>
+                    <div class="stat"><span>ออเดอร์เฉลี่ย</span><strong class="green">฿286</strong></div>
+                </div>
+                <div class="panel">
+                    <div class="panel-head">
+                        <h2>สรุปยอดขายรายช่วงเวลา</h2>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>11:00–13:00</td>
+                                    <td>32 ออเดอร์</td>
+                                    <td>฿8,240</td>
+                                </tr>
+                                <tr>
+                                    <td>13:00–17:00</td>
+                                    <td>21 ออเดอร์</td>
+                                    <td>฿5,180</td>
+                                </tr>
+                                <tr>
+                                    <td>17:00–20:00</td>
+                                    <td>33 ออเดอร์</td>
+                                    <td>฿11,160</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <p class="footer-note">© 2026 Stefanie Software Co., Ltd. · Demo UI สำหรับการนำเสนอเว็บไซต์</p>
+        </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script>
+        const tabs = document.querySelectorAll('[data-tab]'), sections = document.querySelectorAll('.section'), sidebar = document.getElementById('sidebar'), overlay = document.getElementById('overlay'), menuBtn = document.getElementById('menuBtn');
+        function closeMenu() { sidebar.classList.remove('open'); overlay.classList.remove('show'); menuBtn.setAttribute('aria-expanded', 'false') }
+        menuBtn.addEventListener('click', () => { const open = sidebar.classList.toggle('open'); overlay.classList.toggle('show', open); menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false') }); overlay.addEventListener('click', closeMenu);
+        tabs.forEach(b => b.addEventListener('click', () => { tabs.forEach(x => x.classList.remove('active')); sections.forEach(x => x.classList.remove('active')); b.classList.add('active'); document.getElementById(b.dataset.tab).classList.add('active'); closeMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }) }));
+        let timer; function showToast(t) { const e = document.getElementById('toast'); e.textContent = t; e.classList.add('show'); clearTimeout(timer); timer = setTimeout(() => e.classList.remove('show'), 2200) }
+        window.addEventListener('resize', () => { if (window.innerWidth > 760) closeMenu() });
+    </script>
+</body>
+
+</html>
